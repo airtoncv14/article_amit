@@ -6,17 +6,17 @@ from qutip import *
 π = np.pi
 hbar = 1.0
 omega = 1.0
-J = 1.53e11
+J = 1
 
 # Geração dos valores de tempo e de θ para o gráfico
-theta_vals = np.linspace(0, 3.1, 5000)
+theta_vals = np.linspace(0, 3.2, 5000)
 t_vals = (theta_vals * π) / J
 
 # ============
 # PARTE 1 - ESTADOS |1,1> E |2,0>
 # ============
 
-N = 5  # dimensão suficientemente grande
+N = 12  # dimensão suficientemente grande
 a = tensor(destroy(N), qeye(N))  # operador 'a' no primeiro guia
 b = tensor(qeye(N), destroy(N))  # operador 'b' no segundo guia
 
