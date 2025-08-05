@@ -5,18 +5,17 @@ from qutip import *
 # Parâmetros do artigo
 π = np.pi
 hbar = 1.0
-omega = 1.0
+omega = 1
 J = 1
-
 # Geração dos valores de tempo e de θ para o gráfico
-theta_vals = np.linspace(0, 3.2, 5000)
+theta_vals = np.linspace(0, 3.1, 5000)
 t_vals = (theta_vals * π) / J
 
 # ============
 # PARTE 1 - ESTADOS |1,1> E |2,0>
 # ============
 
-N = 12  # dimensão suficientemente grande
+N = 3  # dimensão suficientemente grande
 a = tensor(destroy(N), qeye(N))  # operador 'a' no primeiro guia
 b = tensor(qeye(N), destroy(N))  # operador 'b' no segundo guia
 
@@ -48,12 +47,17 @@ plt.ylabel(r'$E_N->$', fontsize=14, fontname='Times New Roman')
 plt.xlim(0, 3.2)
 plt.ylim(0, 1.7)
 plt.title('Time evolution of log negatively for the separable input state')
-plt.tick_params(which='both', direction='in', length=6, width=1)
+
+plt.tick_params(which='both', direction='in', length=6, width=1,
+                top=True, bottom=True, left=True, right=True)
+plt.gca().tick_params(labelright=True)  # Mostra os números dos ticks do lado direito
+
 plt.minorticks_on()
 plt.grid(False)
 plt.legend()
 plt.tight_layout()
 plt.show()
+
 
 # ============
 # PARTE 2 - ESTADOS NOON: para 2 fótons e 4 fótons
